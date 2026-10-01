@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Aamin Ansari | Full-Stack & AI Developer | Data Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #050508;
+            --surface-color: #11111a;
+            --surface-light: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --neon-blue: #00f0ff;
+            --neon-purple: #b533ff;
+            --gradient-main: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            --gradient-hover: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(181, 51, 255, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.08), transparent 25%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4, .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            color: var(--neon-blue);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .typewriter-container {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            min-height: 2.5rem;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--neon-purple);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-family: 'Poppins', sans-serif;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gradient-main);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-hover);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(181, 51, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .social-icon {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--neon-blue);
+            transform: translateY(-3px);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-main);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: var(--surface-light);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            transform: translateY(-5px);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .skill-tag i {
+            color: var(--neon-purple);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        .project-card {
+            background: var(--surface-color);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s;
+            will-change: transform;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .card-inner {
+            transform: translateZ(30px);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 20px;
+            background: var(--gradient-main);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(181, 51, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tech span {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            color: var(--neon-blue);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--surface-light);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 15px rgba(181, 51, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .about-content {
+                padding: 2rem 1rem;
+            }
+            .contact-form {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">A3</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <p class="hero-subtitle reveal">Welcome to my universe</p>
+        <h1 class="hero-title reveal">Hi, I'm <br><span>Abdul Aamin Ansari</span></h1>
+        <div class="typewriter-container reveal">
+            <span id="typewriter-text"></span><span class="cursor">|</span>
+        </div>
+        
+        <div class="social-links reveal">
+            <a href="https://github.com/CodeWithAamin" target="_blank" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/abdul-aamin-a-33661a26b" target="_blank" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+
+        <a href="#projects" class="btn btn-primary reveal">View My Work</a>
+    </div>
+
+    <section id="about">
+        <h2 class="section-title reveal">About Me</h2>
+        <div class="about-content reveal">
+            <div class="about-text">
+                <p>I am a <span class="highlight">Full-Stack Developer & Data Scientist</span> passionate about building scalable, intelligent solutions. I leverage <span class="highlight">Data Science and Data Analytics</span> to extract actionable insights, bridging the gap between complex data architecture and user-friendly web design.</p>
+                <p>Currently pursuing my <span class="highlight">B.Tech at Sagar Institute of Science and Technology (SISTec)</span> in Bhopal, Madhya Pradesh. I thrive at the intersection of software engineering and Artificial Intelligence, constantly exploring advanced analytics, machine learning models, and predictive algorithms to solve real-world problems.</p>
+                <p>When I'm not coding or visualizing datasets, I'm exploring new AI Prompt Engineering techniques or optimizing automation workflows.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title reveal">Core Arsenal</h2>
+        <div class="skills-container reveal">
+            <div class="skill-tag"><i class="fa-brands fa-react"></i> Next.js</div>
+            <div class="skill-tag"><i class="fa-brands fa-python"></i> Python</div>
+            <div class="skill-tag"><i class="fa-solid fa-flask"></i> Flask</div>
+            <div class="skill-tag"><i class="fa-solid fa-database"></i> Data Science</div>
+            <div class="skill-tag"><i class="fa-solid fa-chart-pie"></i> Data Analytics</div>
+            <div class="skill-tag"><i class="fa-brands fa-cuttlefish"></i> C++</div>
+            <div class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript</div>
+            <div class="skill-tag"><i class="fa-solid fa-robot"></i> AI Prompt Engineering</div>
+            <div class="skill-tag"><i class="fa-solid fa-network-wired"></i> n8n Automation</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title reveal">Featured Projects</h2>
+        <div class="projects-grid">
+            
+            <a href="https://elite-architect-pro.lovable.app" target="_blank" class="project-card reveal card-3d">
+                <div class="card-inner">
+                    <div class="project-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                    <h3 class="project-title">Elite Architect Pro</h3>
+                    <p class="project-desc">A premium web platform tailored for architectural design and portfolio management. Features an immersive UI, dynamic project visualization galleries, and seamless client interaction tools.</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>Tailwind CSS</span>
+                        <span>UI/UX Design</span>
+                        <span>Web App</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://smart-road-canvas.lovable.app" target="_blank" class="project-card reveal card-3d">
+                <div class="card-inner">
+                    <div class="project-icon"><i class="fa-solid fa-road"></i></div>
+                    <h3 class="project-title">Smart Road Canvas</h3>
+                    <p class="project-desc">An interactive web-based canvas application for smart road planning and visualization. Features dynamic drawing tools and real-time layout rendering.</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>Canvas</span>
+                        <span>Interactive UI</span>
+                        <span>Web App</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://la-maka-luxury-farmhouse.lovable.app" target="_blank" class="project-card reveal card-3d">
+                <div class="card-inner">
+                    <div class="project-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                    <h3 class="project-title">La Maka Luxury Farmhouse</h3>
+                    <p class="project-desc">A premium digital showcase for a luxury hospitality property. Designed with elegant aesthetics, seamless navigation, and high-quality visual presentations.</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>Tailwind CSS</span>
+                        <span>Web Design</span>
+                        <span>Frontend</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title reveal">Let's Connect</h2>
+        <form action="https://formspree.io/f/xaenkzno" method="POST" class="contact-form reveal">
+            <div class="form-group">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="social-links" style="margin-bottom: 1rem;">
+            <a href="https://github.com/CodeWithAamin" target="_blank" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/abdul-aamin-a-33661a26b" target="_blank" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2026 Abdul Aamin Ansari. Built with code and passion.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* --- Typewriter Effect --- */
+            const textToType = "Building scalable web apps & AI solutions";
+            const typeTarget = document.getElementById("typewriter-text");
+            let charIndex = 0;
+
+            function type() {
+                if (charIndex < textToType.length) {
+                    typeTarget.textContent += textToType.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(type, 80);
+                }
+            }
+            setTimeout(type, 1000);
+
+
+            /* --- Intersection Observer for Scroll Animations --- */
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+
+
+            /* --- 3D Hover Effect on Project Cards --- */
+            const cards = document.querySelectorAll('.card-3d');
+
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -10;
+                    const rotateY = ((x - centerX) / centerX) * 10;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    card.style.transition = "transform 0.5s ease";
+                    setTimeout(() => {
+                        card.style.transition = "transform 0.1s";
+                    }, 500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
